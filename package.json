@@ -1,0 +1,25 @@
+{
+  "name": "js-adapter-factory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && jest ./dist --forceExit",
+    "coverage": "tsc && jest ./dist --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eullercdr/js-adapter-factory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eullercdr/js-adapter-factory/issues"
+  },
+  "homepage": "https://github.com/eullercdr/js-adapter-factory#readme",
+  "dependencies": {
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.5",
+    "typescript": "^4.5.4"
+  }
+}
