@@ -9,5 +9,5 @@ test("Deve calcular os impostos de uma nota fiscal", () => {
   invoice.addItem(new Whisky("Jack Daniels", 100));
   invoice.addItem(new Water("Crystal", 5));
   const taxes = invoice.getTaxes();
-  expect(taxes).toBe(0.22);
+  expect(taxes).toBe(20.2);
 });

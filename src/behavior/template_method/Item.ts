@@ -4,10 +4,4 @@ export default abstract class Item {
     readonly description: string,
     readonly price: number
   ) {}
-
-  calculateTax() {
-    return (this.price * this.getTaxRate()) / 100;
-  }
-
-  abstract getTaxRate(): number;
 }
