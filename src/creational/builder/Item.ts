@@ -1,42 +1,36 @@
+import ItemBuilder from "./ItemBuilder";
+
 export default class Item {
   idItem: number;
   category: string;
   description: string;
   price: number;
-  width: number;
-  heigth: number;
-  length: number;
-  weight: number;
-  constructor({
-    idItem,
-    category,
-    description,
-    price,
-    width,
-    height,
-    length,
-    weight,
-  }: {
-    idItem: number;
-    category: string;
-    description: string;
-    price: number;
-    width: number;
-    height: number;
-    length: number;
-    weight: number;
-  }) {
-    this.idItem = idItem;
-    this.category = category;
-    this.description = description;
-    this.price = price;
-    this.width = width;
-    this.heigth = height;
-    this.length = length;
-    this.weight = weight;
+  width: number | undefined;
+  heigth: number | undefined;
+  length: number | undefined;
+  weight: number | undefined;
+  constructor(itemBuilder: ItemBuilder) {
+    this.idItem = itemBuilder.idItem;
+    this.category = itemBuilder.category;
+    this.description = itemBuilder.description;
+    this.price = itemBuilder.price;
+    this.width = itemBuilder.width;
+    this.heigth = itemBuilder.heigth;
+    this.length = itemBuilder.length;
+    this.weight = itemBuilder.weight;
   }
 
   getVolume(): number {
+    if (!this.width || !this.heigth || !this.length) {
+      return 0;
+    }
     return ((((this.width / 100) * this.heigth) / 100) * this.length) / 100;
+  }
+
+  getDensity(): number {
+    if (!this.weight || !this.getVolume()) {
+      return 0;
+    }
+    return this.weight / this.getVolume();
   }
 }
